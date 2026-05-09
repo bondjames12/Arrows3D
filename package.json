@@ -1,0 +1,18 @@
+{
+  "name": "arrows-3d",
+  "version": "1.0.0",
+  "description": "A minimalist 3D HTML5/JavaScript spatial puzzle game.",
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "check": "node --check src/game.js && node scripts/validate-levels.mjs"
+  },
+  "keywords": [
+    "threejs",
+    "puzzle",
+    "html5",
+    "webgl"
+  ],
+  "license": "MIT",
+  "devDependencies": {}
+}

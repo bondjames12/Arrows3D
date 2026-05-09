@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Arrows 3D is a free browser puzzle game about clearing floating blocks by swiping them in their engraved arrow direction."
+    />
+    <title>Arrows 3D</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main id="app" class="app" aria-label="Arrows 3D game">
+      <canvas id="game-canvas" aria-label="Interactive 3D puzzle canvas"></canvas>
+
+      <section class="hud top-left" aria-live="polite">
+        <p class="eyebrow">Arrows 3D</p>
+        <h1 id="level-title">Level 1</h1>
+        <p id="level-subtitle">Clear every block by sending it along its arrow.</p>
+      </section>
+
+      <section class="hud top-right stats" aria-label="Level statistics">
+        <span id="moves-count">0 moves</span>
+        <span id="blocks-count">0 blocks left</span>
+      </section>
+
+      <nav class="toolbar bottom-center" aria-label="Game controls">
+        <button id="prev-level" type="button" aria-label="Previous level">←</button>
+        <button id="restart-level" type="button">Restart</button>
+        <button id="next-level" type="button" aria-label="Next level">→</button>
+        <button id="toggle-grid" type="button" aria-pressed="false">Axis Grid</button>
+        <button id="daily-mode" type="button">Daily</button>
+        <button id="settings-open" type="button">Settings</button>
+      </nav>
+
+      <aside id="hint-card" class="hint-card">
+        <strong>How to play</strong>
+        <span>Tap a block, or swipe it with its arrow. Drag empty space to rotate the cluster.</span>
+      </aside>
+
+      <section id="win-panel" class="panel hidden" role="dialog" aria-modal="true" aria-labelledby="win-title">
+        <p class="eyebrow">Puzzle cleared</p>
+        <h2 id="win-title">Beautifully done!</h2>
+        <p id="win-copy">The 3D cluster has been dismantled.</p>
+        <div class="panel-actions">
+          <button id="win-next" type="button">Next Level</button>
+          <button id="win-replay" type="button" class="ghost">Replay</button>
+        </div>
+      </section>
+
+      <section id="daily-panel" class="panel side-panel hidden" role="dialog" aria-modal="true" aria-labelledby="daily-title">
+        <button class="close" id="daily-close" type="button" aria-label="Close daily mode">×</button>
+        <p class="eyebrow">Daily challenge</p>
+        <h2 id="daily-title">Calendar Puzzles</h2>
+        <p>Pick a date to generate a deterministic 3D puzzle for that day.</p>
+        <div id="calendar-grid" class="calendar-grid" aria-label="Daily puzzle calendar"></div>
+      </section>
+
+      <section id="settings-panel" class="panel side-panel hidden" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <button class="close" id="settings-close" type="button" aria-label="Close settings">×</button>
+        <p class="eyebrow">Preferences</p>
+        <h2 id="settings-title">Settings</h2>
+        <label class="field">
+          <span>Camera Sensitivity</span>
+          <input id="camera-sensitivity" type="range" min="0.35" max="1.75" step="0.05" value="0.85" />
+        </label>
+        <label class="switch"><input id="haptics-toggle" type="checkbox" checked /> <span>Vibrations / Haptics</span></label>
+        <label class="switch"><input id="sounds-toggle" type="checkbox" checked /> <span>Sounds</span></label>
+        <label class="switch"><input id="dark-toggle" type="checkbox" /> <span>Dark Mode / Neon Environment</span></label>
+        <div class="settings-links">
+          <a href="mailto:hello@example.com?subject=Arrows%203D%20Feedback">Write us</a>
+          <a href="#privacy" id="privacy-link">Privacy</a>
+        </div>
+        <p id="privacy-note" class="privacy-note hidden">
+          Privacy: Arrows 3D runs locally in your browser and stores only your preferences and progress on this device.
+        </p>
+      </section>
+    </main>
+
+    <script type="module" src="src/game.js"></script>
+  </body>
+</html>
