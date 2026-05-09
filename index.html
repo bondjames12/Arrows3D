@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrows 3D</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="app" class="app" aria-label="Arrows 3D game">
+      <canvas id="game-canvas" aria-label="Interactive 3D puzzle board"></canvas>
+
+      <section class="hud hud--top" aria-label="Game status">
+        <div>
+          <p class="eyebrow" id="mode-label">Level Mode</p>
+          <h1>Arrows 3D</h1>
+        </div>
+        <div class="level-card">
+          <span id="level-title">Level 1</span>
+          <strong id="difficulty-label">Easy</strong>
+        </div>
+      </section>
+
+      <section class="hud hud--bottom" aria-label="Game controls">
+        <button id="prev-level" type="button" title="Previous level">‹</button>
+        <button id="next-level" type="button" title="Next level">›</button>
+        <button id="axis-toggle" type="button">Grid: Off</button>
+        <button id="theme-toggle" type="button">Dark Mode</button>
+        <button id="daily-toggle" type="button">Daily</button>
+        <button id="settings-toggle" type="button">Settings</button>
+      </section>
+
+      <section id="calendar-panel" class="panel calendar-panel hidden" aria-label="Daily puzzle calendar">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow">Daily Mode</p>
+            <h2 id="calendar-month">Daily Challenges</h2>
+          </div>
+          <button class="ghost" id="close-calendar" type="button">Close</button>
+        </div>
+        <div id="calendar-grid" class="calendar-grid"></div>
+      </section>
+
+      <section id="settings-panel" class="panel settings-panel hidden" aria-label="Settings menu">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow">Preferences</p>
+            <h2>Settings</h2>
+          </div>
+          <button class="ghost" id="close-settings" type="button">Close</button>
+        </div>
+        <label class="setting-row">
+          <span>Camera sensitivity</span>
+          <input id="sensitivity" type="range" min="0.4" max="2.2" step="0.1" value="1" />
+        </label>
+        <label class="setting-row">
+          <span>Vibrations / haptics</span>
+          <input id="haptics" type="checkbox" checked />
+        </label>
+        <label class="setting-row">
+          <span>Sounds</span>
+          <input id="sounds" type="checkbox" checked />
+        </label>
+        <label class="setting-row">
+          <span>Dark mode</span>
+          <input id="dark-setting" type="checkbox" />
+        </label>
+        <div class="settings-links">
+          <a href="mailto:hello@example.com?subject=Arrows%203D%20Feedback">Write us</a>
+          <a href="#privacy" id="privacy-link">Privacy</a>
+        </div>
+        <p id="privacy-note" class="privacy-note hidden">Arrows 3D stores only local preferences and daily progress in your browser. No ads, trackers, purchases, or accounts.</p>
+      </section>
+
+      <section id="win-overlay" class="win-overlay hidden" aria-live="polite">
+        <p class="eyebrow">Puzzle cleared</p>
+        <h2>Beautiful!</h2>
+        <p id="win-copy">The cluster is gone.</p>
+        <button id="continue-button" type="button">Next puzzle</button>
+      </section>
+
+      <aside class="hint" aria-label="How to play">
+        Swipe an arrow block along its arrow. Drag empty space to rotate the puzzle.
+      </aside>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
